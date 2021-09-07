@@ -23,9 +23,7 @@ def game_of_life(some_board):
 
 def rules(r_index, c_index, lives, some_board, duplicate_board):
     if some_board[r_index][c_index] == ALIVE:
-        if lives < 2:
-            duplicate_board[r_index][c_index] = DEAD
-        if lives > 3:
+        if lives < 2 or lives > 3:
             duplicate_board[r_index][c_index] = DEAD
     else:
         if lives == 3:
@@ -80,7 +78,7 @@ def random_alive(board):
     r_index = -1
     for rows in board:
         c_index = -1
-        for columns in board:
+        for columns in rows:
             c_index += 1
             if random_number(1) > 0:
                 board[r_index][c_index] = ALIVE
